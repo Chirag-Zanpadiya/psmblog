@@ -5,22 +5,22 @@ import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
 export default function RTE({ name, control, label, defaultValue = "" }) {
-return (
+  return (
     <div className="w-full min-h-screen">
-    {label && <label className="inline-block mb-1 pl-1">{label}</label>}
+      {label && <label className="inline-block mb-1 pl-1">{label}</label>}
 
-    <Controller
+      <Controller
         name={name || "Content"}
         control={control}
         render={({ field: { onChange } }) => (
-        <Editor
+          <Editor
             apiKey="0nfjfjrs9ai8zxumwgt7tvcx4plinhelg13u97hhgodg96ld"
             initialValue={defaultValue}
             init={{
-            initialValue: defaultValue,
-            height: 500,
-            menubar: true,
-            plugins: [
+              initialValue: defaultValue,
+              height: 500,
+              menubar: true,
+              plugins: [
                 "image",
                 "advlist",
                 "autolink",
@@ -41,16 +41,16 @@ return (
                 "help",
                 "wordcount",
                 "anchor",
-            ],
-            toolbar:
+              ],
+              toolbar:
                 "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
-            content_style:
+              content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
             onEditorChange={onChange}
-        />
+          />
         )}
-    />
+      />
     </div>
-);
+  );
 }
